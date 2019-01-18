@@ -25,5 +25,6 @@ CREATE TABLE transactions (
   merchant_id INT8 REFERENCES merchants(id),
   tag_id INT8 REFERENCES tags(id),
   amount INT8,
-  transaction_date DATETIME2
+  transaction_date DATE,
+  transaction_time TIME
 );
