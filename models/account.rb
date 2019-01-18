@@ -29,6 +29,26 @@ class Account
     @id = results.first()['id'].to_i
   end
 
+  def update()
+    sql = "UPDATE accounts
+    SET
+    (
+      first_name,
+      sur_name,
+      budget
+    ) =
+    (
+      $1, $2, $3
+    )
+    WHERE id = $4"
+    values = [@first_name, @last_name, @budget, @id]
+    SqlRunner.run(sql, values)
+  end
+
+  def format_name()
+    return "#{@first_name.capitalize} #{@sur_name.capitalize}"
+  end
+
   def self.all()
     sql = "SELECT * FROM accounts"
     results = SqlRunner.run( sql )
@@ -47,28 +67,16 @@ class Account
     SqlRunner.run( sql, values )
   end
 
-  def self.map_items(account_data)
-    return account_data.map { |account| Account.new(account) }
+  def self.find(id)
+    sql = "SELECT * FROM accounts WHERE id = $1"
+    values = [id]
+    account = SqlRunner.run(sql, values)
+    result = Account.new(account.first)
+    return result
   end
 
-  def update()
-    sql = "UPDATE accounts
-    SET
-    (
-      first_name,
-      sur_name,
-      budget
-    ) =
-    (
-      $1, $2, $3
-    )
-    WHERE id = $4"
-    values = [@first_name, @last_name, @budget,@id]
-    SqlRunner.run(sql, values)
-  end
-
-  def format_name()
-    return "#{@first_name.capitalize} #{@sur_name.capitalize}"
-  end
+  # def self.map_items(account_data)
+  #   return account_data.map { |account| Account.new(account) }
+  # end
 
 end
