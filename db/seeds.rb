@@ -1,10 +1,12 @@
 require_relative('../models/account')
 require_relative('../models/tag')
 require_relative('../models/merchant')
+require_relative('../models/transaction')
 
 Account.delete_all()
 Tag.delete_all()
 Merchant.delete_all()
+Transaction.delete_all()
 
 account = Account.new(
   {
@@ -59,3 +61,15 @@ tag3.save()
 merchant1.save()
 merchant2.save()
 merchant3.save()
+
+transaction1 = Transaction.new(
+  {
+    'amount' => '20',
+    'merchant_id' => merchant1.id,
+    'tag_id' => tag1.id,
+    'transaction_date' => Time.now(),
+    'transaction_time' => Time.now()
+  }
+)
+
+transaction1.save()
