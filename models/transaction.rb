@@ -51,14 +51,16 @@ class Transaction
   #   SqlRunner.run(sql, values)
   # end
 
-  def total()
-
+  def self.total()
+    sql = "SELECT SUM (amount) FROM transactions"
+    results = SqlRunner.run(sql)
+    return results.first
   end
 
   def self.all()
     sql = "SELECT * FROM transactions"
     results = SqlRunner.run( sql )
-    return results.map { |transaction| Transaction.new( transaction ) }
+    return results.map {|transaction| Transaction.new(transaction)}
   end
 
   def self.delete_all()
