@@ -5,7 +5,7 @@
   <% @transactions.each do |transaction| %>
 
   <div class="transaction">
-    <p>Date: <%= transaction.transaction_date %> | Merchant: <%= transaction.merchant_id %> | Tag: <%= transaction.tag_id %> | Amount: <%= transaction.amount %> | Timestamp: <%= transaction.transaction_time %><a href="/account/transactions/<%= transaction.id %>"> - View</a><a href="/account/transactions/<%= transaction.id %>/edit"> - Edit</a></p></p>
+    <p>Date: <%= transaction.transaction_date %> | Merchant: <%= transaction.merchant_id %> | Tag: <%= transaction.tag_id %> | Amount: £<%= transaction.amount %> | Timestamp: <%= transaction.transaction_time %><a href="/account/transactions/<%= transaction.id %>"> - View</a><a href="/account/transactions/<%= transaction.id %>/edit"> - Edit</a></p></p>
   </div>
 
   <% end %>

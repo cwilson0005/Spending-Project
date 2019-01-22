@@ -19,6 +19,8 @@ end
 
 get '/account/transactions' do
   @transactions = Transaction.all
+  @merchants = Merchant.all
+  @tags = Tag.all
   erb(:transactions)
 end
 

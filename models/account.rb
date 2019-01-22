@@ -9,7 +9,7 @@ class Account
     @id = options['id'].to_i if options['id']
     @first_name = options['first_name']
     @sur_name = options['sur_name']
-    @budget = options['budget'].to_i
+    @budget = options['budget'].to_f
   end
 
   def save()

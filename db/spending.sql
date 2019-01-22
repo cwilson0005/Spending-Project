@@ -17,7 +17,7 @@ CREATE TABLE accounts (
   id SERIAL8 PRIMARY KEY,
   first_name VARCHAR(255),
   sur_name VARCHAR(255),
-  budget INT8
+  budget FLOAT
 );
 
 CREATE TABLE transactions (

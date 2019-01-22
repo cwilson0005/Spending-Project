@@ -1,4 +1,4 @@
-require_relative( '../db/sql_runner' )
+require_relative('../db/sql_runner')
 
 class Transaction
 
@@ -58,19 +58,19 @@ class Transaction
 
   def total()
     sql = "SELECT SUM (amount) FROM transactions"
-    results = SqlRunner.run(sql)
-    return "£" + results[0]["sum"]
+    result = SqlRunner.run(sql)
+    return "£" + result[0]["sum"]
   end
 
   def self.all()
     sql = "SELECT * FROM transactions"
-    results = SqlRunner.run( sql )
+    results = SqlRunner.run(sql)
     return results.map {|transaction| Transaction.new(transaction)}
   end
 
   def self.delete_all()
     sql = "DELETE FROM transactions"
-    SqlRunner.run( sql )
+    SqlRunner.run(sql)
   end
 
   # def self.destroy(id)

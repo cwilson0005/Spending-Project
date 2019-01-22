@@ -13,7 +13,7 @@ account = Account.new(
   {
     'first_name' => 'Conor',
     'sur_name' => 'Wilson',
-    'budget' => '100'
+    'budget' => '100.00'
   }
 )
 
