@@ -7,7 +7,9 @@ require_relative( '../models/transaction.rb' )
 require_relative( '../models/tag.rb' )
 also_reload( '../models/*' )
 
-
+get '/' do
+  erb(:home)
+end
 
 binding.pry
 nil
