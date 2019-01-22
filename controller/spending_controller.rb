@@ -1,15 +1,11 @@
 require('sinatra')
 require('sinatra/reloader') if development?
-require('pry')
+# require('pry')
 require_relative( '../models/account.rb' )
 require_relative( '../models/merchant.rb' )
 require_relative( '../models/transaction.rb' )
 require_relative( '../models/tag.rb' )
 also_reload( '../models/*' )
 
-get '/' do
-  erb(:home)
-end
-
-binding.pry
-nil
+# binding.pry
+# nil
