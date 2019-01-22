@@ -1,0 +1,14 @@
+<h2>Your Account</h2>
+
+<div id="account-wrapper">
+
+  <% @accounts.each do |account| %>
+
+  <div class="account">
+    <p>Name: <%= account.format_name.capitalize %></p>
+    <p>Budget: <%= account.budget %></p>
+  </div>
+
+  <% end %>
+
+</div>

@@ -1,0 +1,13 @@
+<h2>Your Transactions</h2>
+
+<div id="transaction-wrapper">
+
+  <% @transactions.each do |transaction| %>
+
+  <div class="transaction">
+    <p>Date: <%= transaction.transaction_date %> | Merchant: <%= transaction.merchant_id %> | Tag: <%= transaction.tag_id %> | Amount: <%= transaction.amount %> | Timestamp: <%= transaction.transaction_time %><a href="/account/transactions/<%= transaction.id %>"> - View</a></p>
+  </div>
+
+  <% end %>
+
+</div>

@@ -51,6 +51,13 @@ class Transaction
   #   SqlRunner.run(sql, values)
   # end
 
+  def delete()
+    sql = "DELETE FROM transactions
+    WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
   def self.total()
     sql = "SELECT SUM (amount) FROM transactions"
     results = SqlRunner.run(sql)
@@ -68,12 +75,12 @@ class Transaction
     SqlRunner.run( sql )
   end
 
-  def self.destroy(id)
-    sql = "DELETE FROM transactions
-    WHERE id = $1"
-    values = [id]
-    SqlRunner.run( sql, values )
-  end
+  # def self.destroy(id)
+  #   sql = "DELETE FROM transactions
+  #   WHERE id = $1"
+  #   values = [id]
+  #   SqlRunner.run( sql, values )
+  # end
 
   def self.find(id)
     sql = "SELECT * FROM transactions WHERE id = $1"
