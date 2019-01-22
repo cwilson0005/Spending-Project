@@ -62,6 +62,18 @@ class Transaction
     return "£" + result[0]["sum"]
   end
 
+  def merchant_name
+    sql = "SELECT name FROM merchants INNER JOIN transactions ON merchants.id = transactions.merchant_id"
+    result = SqlRunner.run(sql)
+    return result
+  end
+
+  def tag_name
+    sql = "SELECT name FROM tags INNER JOIN transactions ON tags.id = transactions.tag_id"
+    result = SqlRunner.run(sql)
+    return result
+  end
+
   def self.all()
     sql = "SELECT * FROM transactions"
     results = SqlRunner.run(sql)
