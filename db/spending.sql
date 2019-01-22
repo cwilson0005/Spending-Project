@@ -24,7 +24,7 @@ CREATE TABLE transactions (
   id SERIAL8 PRIMARY KEY,
   merchant_id INT8 REFERENCES merchants(id),
   tag_id INT8 REFERENCES tags(id),
-  amount INT8,
+  amount FLOAT,
   transaction_date DATE,
   transaction_time TIME
 );

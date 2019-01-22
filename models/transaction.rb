@@ -7,7 +7,7 @@ class Transaction
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
-    @amount = options['amount']
+    @amount = options['amount'].to_f
     @merchant_id = options['merchant_id'].to_i
     @tag_id = options['tag_id'].to_i
     @transaction_date = options['transaction_date']
@@ -33,23 +33,21 @@ class Transaction
     @id = results.first()['id'].to_i
   end
 
-  # def update()
-  #   sql = "UPDATE transactions
-  #   SET
-  #   (
-  #     amount,
-  #     merchant_id,
-  #     tag_id,
-  #     transaction_date,
-  #     transaction_time
-  #   ) =
-  #   (
-  #     $1, $2, $3, $4, $5
-  #   )
-  #   WHERE id = $6"
-  #   values = [@amount, @merchant_id, @tag_id, @transaction_date, @transaction_time, @id]
-  #   SqlRunner.run(sql, values)
-  # end
+  def update()
+    sql = "UPDATE transactions
+    SET
+    (
+      amount,
+      merchant_id,
+      tag_id
+    ) =
+    (
+      $1, $2, $3
+    )
+    WHERE id = $4"
+    values = [@amount, @merchant_id, @tag_id, @id]
+    SqlRunner.run(sql, values)
+  end
 
   def delete()
     sql = "DELETE FROM transactions
@@ -58,10 +56,10 @@ class Transaction
     SqlRunner.run(sql, values)
   end
 
-  def self.total()
+  def total()
     sql = "SELECT SUM (amount) FROM transactions"
     results = SqlRunner.run(sql)
-    return results.first
+    return "£" + results[0]["sum"]
   end
 
   def self.all()
