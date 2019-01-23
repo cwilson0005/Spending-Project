@@ -1,49 +1,13 @@
 require('sinatra')
 require('sinatra/reloader') if development?
 # require('pry')
-# require_relative('controller/spending_controller.rb')
-require_relative('models/account.rb')
-require_relative('models/merchant.rb')
-require_relative('models/transaction.rb')
-require_relative('models/tag.rb')
-also_reload('models/*')
+require_relative('controllers/account_controller')
+require_relative('controllers/tag_controller')
+require_relative('controllers/merchant_controller')
+require_relative('controllers/transaction_controller')
 
 get '/' do
   erb(:home)
-end
-
-get '/account' do
-  @accounts = Account.all
-  erb(:index)
-end
-
-get '/account/transactions' do
-  @transactions = Transaction.all
-  @merchants = Merchant.all
-  @tags = Tag.all
-  erb(:transactions)
-end
-
-get '/account/transactions/new' do
-  @merchants = Merchant.all
-  @tags = Tag.all
-  erb(:new)
-end
-
-post '/account/transactions' do
-  Transaction.new(params).save
-  redirect to '/account/transactions'
-end
-
-get '/account/transactions/:id' do
-  @transaction = Transaction.find(params['id'])
-  erb(:show)
-end
-
-post '/account/transactions/:id/delete' do
-  transaction = Transaction.find(params['id'])
-  transaction.delete
-  redirect to '/account/transactions'
 end
 
 get '/account/transactions/:id/edit' do

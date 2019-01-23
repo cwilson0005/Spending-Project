@@ -6,11 +6,3 @@ require_relative( '../models/merchant.rb' )
 require_relative( '../models/transaction.rb' )
 require_relative( '../models/tag.rb' )
 also_reload( '../models/*' )
-
-# get '/account' do
-#   @accounts = Account.all
-#   erb(:index)
-# end
-
-# binding.pry
-# nil

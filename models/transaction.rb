@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require('pry')
 
 class Transaction
 
@@ -94,8 +95,9 @@ class Transaction
 
   def self.find(id)
     sql = "SELECT * FROM transactions WHERE id = $1"
-    values = [id]
+    values = [@id]
     transaction = SqlRunner.run(sql, values)
+    # binding.pry
     result = Transaction.new(transaction.first)
     return result
   end

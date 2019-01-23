@@ -6,4 +6,4 @@
 <p>Amount: £<%= @transaction.amount %></p>
 <p>Time: <%= @transaction.transaction_time%></p>
 
-<form action="/account/transactions/<%= @transaction.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
+<form action="/transactions/<%= @transaction.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
