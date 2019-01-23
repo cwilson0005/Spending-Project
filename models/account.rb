@@ -60,12 +60,12 @@ class Account
     SqlRunner.run( sql )
   end
 
-  def self.destroy(id)
-    sql = "DELETE FROM accounts
-    WHERE id = $1"
-    values = [id]
-    SqlRunner.run( sql, values )
-  end
+  # def self.destroy(id)
+  #   sql = "DELETE FROM accounts
+  #   WHERE id = $1"
+  #   values = [id]
+  #   SqlRunner.run( sql, values )
+  # end
 
   def self.find(id)
     sql = "SELECT * FROM accounts WHERE id = $1"

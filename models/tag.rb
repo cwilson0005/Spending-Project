@@ -39,6 +39,13 @@ class Tag
     SqlRunner.run(sql, values)
   end
 
+  def delete()
+    sql = "DELETE FROM tags
+    WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
   def self.all()
     sql = "SELECT * FROM tags"
     results = SqlRunner.run( sql )
@@ -50,12 +57,12 @@ class Tag
     SqlRunner.run( sql )
   end
 
-  def self.destroy(id)
-    sql = "DELETE FROM tags
-    WHERE id = $1"
-    values = [id]
-    SqlRunner.run( sql, values )
-  end
+  # def self.destroy(id)
+  #   sql = "DELETE FROM tags
+  #   WHERE id = $1"
+  #   values = [id]
+  #   SqlRunner.run( sql, values )
+  # end
 
   def self.find(id)
     sql = "SELECT * FROM tags WHERE id = $1"
