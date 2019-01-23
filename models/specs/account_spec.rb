@@ -1,4 +1,5 @@
 require("minitest/autorun")
+require_relative("../account")
 
 class TestAccount < MiniTest::Test
 
