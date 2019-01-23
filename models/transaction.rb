@@ -64,15 +64,17 @@ class Transaction
   end
 
   def merchant_name
-    sql = "SELECT name FROM merchants INNER JOIN transactions ON transactions.merchant_id = merchants.id"
-    result = SqlRunner.run(sql)
-    return result
+    sql = "SELECT name FROM merchants INNER JOIN transactions ON transactions.merchant_id = merchants.id WHERE transactions.id = $1"
+    values = [@id]
+    result = SqlRunner.run(sql, values)
+    return result[0]["name"]
   end
 
   def tag_name
-    sql = "SELECT name FROM tags INNER JOIN transactions ON tags.id = transactions.tag_id"
-    result = SqlRunner.run(sql)
-    return result
+    sql = "SELECT name FROM tags INNER JOIN transactions ON tags.id = transactions.tag_id WHERE transactions.id = $1"
+    values = [@id]
+    result = SqlRunner.run(sql, values)
+    return result[0]["name"]
   end
 
   def self.all()
