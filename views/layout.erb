@@ -4,11 +4,21 @@
     <meta charset="utf-8">
     <title>Spending Project</title>
     <link rel="icon" href="/images/pound_icon.png" />
+
+    <link href="https://fonts.googleapis.com/css?family=News+Cycle" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Khula:600,800" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/styles/reset.css">
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
 
-    <nav>
+    <nav class="navbar-top">
       <ul>
+        <li class="logo">
+          Spend It All
+        </li>
         <li><a href="/account">View Account</a></li>
         <li><a href="/transactions">View All Transactions</a></li>
         <li><a href="/merchants">View All Merchants</a></li>
@@ -17,5 +27,11 @@
     </nav>
 
     <%= yield %>
+
+    <footer>
+      <ul>
+        <li>&copy CodeClan 2019</li>
+      </ul>
+    </footer>
   </body>
 </html>

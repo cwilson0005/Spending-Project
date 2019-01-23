@@ -1,0 +1,61 @@
+
+/*===================== NAV BAR TOP ======================*/
+.navbar-top {
+  background-image: url("../images/fjord1.jpeg");
+}
+
+.navbar-top > ul{
+  display: flex;
+  justify-content: space-around;
+  height: 4rem;
+  line-height: 4rem;
+  padding: 10px;
+  border-bottom: 1px solid #eeedf2;
+  margin-bottom: 15px;
+}
+
+.navbar-top > ul li:first-child {
+  margin-right: auto;
+}
+
+.navbar-top > ul li {
+  margin-right: 20px;
+}
+
+.navbar-top a {
+  text-decoration: none;
+  border-left: 6px solid gold;
+  background-color: lightgrey;
+}
+
+.navbar-top a:visited {
+  color: #1A6BC7;
+  border-left: 6px solid gold;
+  background-color: lightgrey;
+}
+
+.logo {
+  font-family: 'Khula', sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: #1A6BC7;
+  line-height: 4.4rem;
+  border-left: 6px solid gold;
+  background-color: lightgrey;
+}
+
+/*===================== BODY ======================*/
+
+body {
+  font-family: "News Cycle", Roboto, Helvetica Neue, Helvetica, Tahoma, Arial, sans-serif;
+  color: #6f7287;
+  background-color: ;
+}
+
+
+/*===================== FOOTER ======================*/
+
+footer {
+  display: flex;
+  justify-content: center;
+}
