@@ -64,7 +64,7 @@ class Transaction
   end
 
   def merchant_name
-    sql = "SELECT name FROM merchants INNER JOIN transactions ON merchants.id = transactions.merchant_id"
+    sql = "SELECT name FROM merchants INNER JOIN transactions ON transactions.merchant_id = merchants.id"
     result = SqlRunner.run(sql)
     return result
   end
