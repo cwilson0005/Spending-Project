@@ -1,0 +1,15 @@
+<h2>Your Tags</h2>
+
+<div id="tag-wrapper">
+
+  <li><a href="/tags/new">Add New Tag</a></li>
+
+  <% @tags.each do |tag| %>
+
+  <div class="tag">
+    <p>Tag Name: <%= tag.name %></p>
+  </div>
+
+  <% end %>
+
+</div>

@@ -1,0 +1,15 @@
+<h2>Your Merchants</h2>
+
+<div id="merchant-wrapper">
+
+  <li><a href="/merchants/new">Add New Merchant</a></li>
+
+  <% @merchants.each do |merchant| %>
+
+  <div class="merchant">
+    <p>Merchant Name: <%= merchant.name %></p>
+  </div>
+
+  <% end %>
+
+</div>

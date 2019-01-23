@@ -2,10 +2,12 @@
 
 <div id="transaction-wrapper">
 
+  <li><a href="/transactions/new">Add New Transaction</a></li>
+
   <% @transactions.each do |transaction| %>
 
   <div class="transaction">
-    <p>Date: <%= transaction.transaction_date %> | Merchant: <%= transaction.merchant_name %> | Tag: <%= transaction.tag_name %> | Amount: £<%= transaction.amount %> | Timestamp: <%= transaction.transaction_time %><a href="/transactions/<%= transaction.id %>"> - View</a><a href="/transactions/<%= transaction.id %>/edit"> - Edit</a></p></p>
+    <p>Date: <%= transaction.transaction_date %> | Merchant: <%= transaction.merchant_name %> | Tag: <%= transaction.tag_name %> | Amount: £<%= transaction.amount %> | Timestamp: <%= transaction.transaction_time %><a href="/transactions/<%= transaction.id %>"> - View</a><a href="/transactions/<%= transaction.id %>/edit"> - Edit</a></p>
   </div>
 
   <% end %>
