@@ -9,7 +9,7 @@ Account.delete_all()
 Tag.delete_all()
 Merchant.delete_all()
 
-account = Account.new(
+account1 = Account.new(
   {
     'first_name' => 'Conor',
     'sur_name' => 'Wilson',
@@ -53,7 +53,7 @@ merchant3 = Merchant.new(
   }
 )
 
-account.save()
+account1.save()
 
 tag1.save()
 tag2.save()
@@ -82,7 +82,6 @@ transaction2 = Transaction.new(
     'transaction_time' => Time.now()
   }
 )
-
 
 transaction1.save()
 transaction2.save()

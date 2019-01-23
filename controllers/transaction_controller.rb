@@ -25,13 +25,26 @@ get '/transactions/:id' do
   erb(:"transactions/show")
 end
 
+get '/transactions/:id/edit' do
+  @transaction = Transaction.find(params['id'])
+  @merchants = Merchant.all
+  @tags = Tag.all
+  erb(:"transactions/edit")
+end
+
+post '/transactions' do
+  Transaction.new(params).save
+  redirect to '/transactions'
+end
+
 post '/transactions/:id/delete' do
   transaction = Transaction.find(params['id'])
   transaction.delete
   redirect to '/transactions'
 end
 
-post '/transactions' do
-  Transaction.new(params).save
-  redirect to '/transactions'
+post '/transactions/:id' do
+  transaction = Transaction.new(params)
+  transaction.update
+  redirect to "/transactions/#{params['id']}"
 end

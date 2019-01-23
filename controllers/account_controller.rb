@@ -12,5 +12,21 @@ get '/account' do
   erb(:"accounts/index")
 end
 
+# get '/account/:id' do
+#   @account = Account.find(params['id'])
+#   erb(:"account/show")
+# end
+#
+# get '/account/:id/edit' do
+#   @account = Account.find(params['id'])
+#   erb(:"accounts/edit")
+# end
+#
+# post '/account' do
+#   account = Account.new(params)
+#   account.update
+#   redirect to "/account"
+# end
+
 # binding.pry
 # nil

@@ -10,18 +10,5 @@ get '/' do
   erb(:home)
 end
 
-get '/account/transactions/:id/edit' do
-  @transaction = Transaction.find(params['id'])
-  @merchants = Merchant.all
-  @tags = Tag.all
-  erb(:edit)
-end
-
-post '/account/transactions/:id' do
-  transaction = Transaction.new(params)
-  transaction.update
-  redirect to "/account/transactions/#{params['id']}"
-end
-
 # binding.pry
 # nil
